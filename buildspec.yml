@@ -1,0 +1,14 @@
+version: 0.1
+
+phases:
+  build:
+    commands:
+      - echo Building...
+      - ./gradlew bootJar
+  post_build:
+    commands:
+      - echo Build Successful
+artifacts:
+  files:
+    - build/libs/application.jar
+  discard-paths: yes

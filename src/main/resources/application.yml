@@ -1,0 +1,20 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: API_GATEWAY
+    cloud:
+      gateway:
+        routes:
+          - id : USER-SERVICE
+            uri : lb://USER-SERVICE
+            predicates :
+              - Path=/api/user/**
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eurekaserver-env.eba-bb3u3sk7.ap-south-1.elasticbeanstalk.com/eureka/
